@@ -1,0 +1,2 @@
+ce fichier est là pour garder quelques liens qui pointes sur des documentatations interessantes :
+    CONFIGURATION DOCTRINE : https://symfony.com/doc/current/reference/configuration/doctrine.html
