@@ -9,13 +9,14 @@ security:
         app_user_provider:
             entity:
                 class:      App\Entity\User
-                property:   apiToken
+                property:   email
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         login:
             pattern:  ^/api/login
+            provider:   app_user_provider
             stateless: true
             anonymous: true
             json_login:
@@ -24,7 +25,6 @@ security:
                 failure_handler:          lexik_jwt_authentication.handler.authentication_failure
         api:
             pattern:    ^/api
-            provider:   app_user_provider
             stateless:  true
             guard:
                 authenticators:
@@ -36,7 +36,6 @@ security:
             guard:
                 authenticators:
                     - App\Security\TokenAuthenticator
-            stateless: true
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
